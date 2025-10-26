@@ -8,7 +8,7 @@
   },
   "hero": {
     "title": "Oz LeIsrael",
-    "subtitle": "La Force de la Torah, l'Elite de Tsahal",
+    "subtitle": "La Force de la Torah, l&apos;Elite de Tsahal",
     "cta": "Rejoins le Programme"
   },
   "pillars": {
@@ -18,7 +18,7 @@
     },
     "physical": {
       "title": "Préparation Physique & Mentale",
-      "description": "Entraînement d'élite pour les unités spéciales"
+      "description": "Entraînement d&apos;élite pour les unités spéciales"
     },
     "zionism": {
       "title": "Sionisme & Communauté",
@@ -27,14 +27,14 @@
   },
   "mission": {
     "title": "Notre Mission",
-    "elite": "Devenir l'élite",
+    "elite": "Devenir l&apos;élite",
     "unity": "Unir Torah et Armée",
     "integrate": "Intégrer les meilleures unités",
     "framework": "Un cadre de Yeshiva unique"
   },
   "testimonials": {
-    "title": "Ils l'ont fait",
-    "subtitle": "Découvre l'expérience Oz LeIsrael"
+    "title": "Ils l&apos;ont fait",
+    "subtitle": "Découvre l&apos;expérience Oz LeIsrael"
   },
   "cta": {
     "ready": "Prêt à relever le défi ?",
@@ -47,10 +47,10 @@
     "email": "Email",
     "phone": "Téléphone (WhatsApp)",
     "age": "Âge",
-    "country": "Pays d'origine",
+    "country": "Pays d&apos;origine",
     "message": "Message (optionnel)",
     "submit": "Envoyer ma candidature",
-    "noWait": "N'attends plus. Prends contact maintenant pour un entretien.",
+    "noWait": "N&apos;attends plus. Prends contact maintenant pour un entretien.",
     "whatsapp": "Nous contacter sur WhatsApp"
   },
   "program": {
@@ -71,14 +71,14 @@
   },
   "approach": {
     "title": "Notre Approche",
-    "intro": "Oz LeIsrael repose sur l'équilibre parfait entre le renforcement spirituel et le dépassement physique.",
+    "intro": "Oz LeIsrael repose sur l&apos;équilibre parfait entre le renforcement spirituel et le dépassement physique.",
     "kodesh": {
-      "title": "Le Kodesh - L'étude",
-      "description": "Un programme d'étude solide au sein de la Yeshiva Or Vishua. Objectifs : grandir spirituellement, construire des bases solides avant l'armée."
+      "title": "Le Kodesh - L&apos;étude",
+      "description": "Un programme d&apos;étude solide au sein de la Yeshiva Or Vishua. Objectifs : grandir spirituellement, construire des bases solides avant l&apos;armée."
     },
     "hol": {
       "title": "Le Hol - Le Physique & Mental",
-      "description": "Une préparation physique et mentale d'élite. Objectifs : réussir les tests des meilleures unités (Sayerot), développer un mental d'acier."
+      "description": "Une préparation physique et mentale d&apos;élite. Objectifs : réussir les tests des meilleures unités (Sayerot), développer un mental d&apos;acier."
     },
     "process": {
       "title": "Comment nous rejoindre",
@@ -91,7 +91,7 @@
       "step4": "La formation",
       "step4Desc": "Étude & sport",
       "step5": "Objectif : Tsahal",
-      "step5Desc": "Intégration unités d'élite"
+      "step5Desc": "Intégration unités d&apos;élite"
     },
     "start": "Ton avenir commence ici"
   },
@@ -99,14 +99,14 @@
     "title": "Qui Sommes-Nous",
     "mission": {
       "title": "Notre Mission",
-      "description": "Former la prochaine génération de leaders d'Israël, forts spirituellement et physiquement."
+      "description": "Former la prochaine génération de leaders d&apos;Israël, forts spirituellement et physiquement."
     },
     "partner": {
       "title": "Un cadre exceptionnel : La Yeshiva Or Vishua",
-      "description": "Notre partenariat avec la Yeshiva Or Vishua nous offre un cadre unique d'étude et de développement spirituel."
+      "description": "Notre partenariat avec la Yeshiva Or Vishua nous offre un cadre unique d&apos;étude et de développement spirituel."
     },
     "testimonials": {
-      "title": "Ce qu'ils en disent"
+      "title": "Ce qu&apos;ils en disent"
     }
   },
   "footer": {
