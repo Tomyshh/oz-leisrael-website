@@ -6,14 +6,14 @@ import { FaFacebook, FaInstagram, FaYoutube } from 'react-icons/fa';
 import { useI18n } from '@/lib/i18n';
 
 export default function Footer() {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
 
   const navigation = [
-    { name: t('nav.home'), href: '/' },
-    { name: t('nav.program'), href: '/program' },
-    { name: t('nav.approach'), href: '/approach' },
-    { name: t('nav.about'), href: '/about' },
-    { name: t('nav.contact'), href: '/contact' },
+    { name: t('nav.home'), href: `/${locale}` },
+    { name: t('nav.program'), href: `/${locale}/program` },
+    { name: t('nav.approach'), href: `/${locale}/approach` },
+    { name: t('nav.about'), href: `/${locale}/about` },
+    { name: t('nav.contact'), href: `/${locale}/contact` },
   ];
 
   const socialLinks = [
@@ -95,13 +95,13 @@ export default function Footer() {
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link
-                href="/privacy"
+                href={`/${locale}/privacy`}
                 className="text-gray-600 hover:text-primary-600 text-sm transition-colors duration-200"
               >
                 {t('footer.privacy')}
               </Link>
               <Link
-                href="/terms"
+                href={`/${locale}/terms`}
                 className="text-gray-600 hover:text-primary-600 text-sm transition-colors duration-200"
               >
                 {t('footer.terms')}
