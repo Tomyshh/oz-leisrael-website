@@ -1,0 +1,117 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "program": "Le Programme",
+    "approach": "Notre Approche",
+    "about": "La Yeshiva",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Oz LeIsrael",
+    "subtitle": "La Force de la Torah, l'Elite de Tsahal",
+    "cta": "Rejoins le Programme"
+  },
+  "pillars": {
+    "spiritual": {
+      "title": "Préparation Spirituelle",
+      "description": "Étude approfondie de la Torah au sein de la Yeshiva"
+    },
+    "physical": {
+      "title": "Préparation Physique & Mentale",
+      "description": "Entraînement d'élite pour les unités spéciales"
+    },
+    "zionism": {
+      "title": "Sionisme & Communauté",
+      "description": "Fraternité et engagement pour Israël"
+    }
+  },
+  "mission": {
+    "title": "Notre Mission",
+    "elite": "Devenir l'élite",
+    "unity": "Unir Torah et Armée",
+    "integrate": "Intégrer les meilleures unités",
+    "framework": "Un cadre de Yeshiva unique"
+  },
+  "testimonials": {
+    "title": "Ils l'ont fait",
+    "subtitle": "Découvre l'expérience Oz LeIsrael"
+  },
+  "cta": {
+    "ready": "Prêt à relever le défi ?",
+    "talk": "Nous parler de ton projet"
+  },
+  "contact": {
+    "title": "Contact",
+    "firstName": "Prénom",
+    "lastName": "Nom",
+    "email": "Email",
+    "phone": "Téléphone (WhatsApp)",
+    "age": "Âge",
+    "country": "Pays d'origine",
+    "message": "Message (optionnel)",
+    "submit": "Envoyer ma candidature",
+    "noWait": "N'attends plus. Prends contact maintenant pour un entretien.",
+    "whatsapp": "Nous contacter sur WhatsApp"
+  },
+  "program": {
+    "title": "Le Programme",
+    "filters": {
+      "videos": "Vidéos",
+      "photos": "Photos",
+      "schedule": "Journée Type",
+      "testimonials": "Témoignages"
+    },
+    "schedule": {
+      "title": "Une Journée Type",
+      "morning": "Matin",
+      "afternoon": "Après-midi",
+      "evening": "Soir"
+    },
+    "cta": "Je veux vivre ça"
+  },
+  "approach": {
+    "title": "Notre Approche",
+    "intro": "Oz LeIsrael repose sur l'équilibre parfait entre le renforcement spirituel et le dépassement physique.",
+    "kodesh": {
+      "title": "Le Kodesh - L'étude",
+      "description": "Un programme d'étude solide au sein de la Yeshiva Or Vishua. Objectifs : grandir spirituellement, construire des bases solides avant l'armée."
+    },
+    "hol": {
+      "title": "Le Hol - Le Physique & Mental",
+      "description": "Une préparation physique et mentale d'élite. Objectifs : réussir les tests des meilleures unités (Sayerot), développer un mental d'acier."
+    },
+    "process": {
+      "title": "Comment nous rejoindre",
+      "step1": "Prise de Contact",
+      "step1Desc": "Formulaire / WhatsApp",
+      "step2": "Entretien personnel",
+      "step2Desc": "Évaluation des objectifs",
+      "step3": "Acceptation",
+      "step3Desc": "Début du programme",
+      "step4": "La formation",
+      "step4Desc": "Étude & sport",
+      "step5": "Objectif : Tsahal",
+      "step5Desc": "Intégration unités d'élite"
+    },
+    "start": "Ton avenir commence ici"
+  },
+  "about": {
+    "title": "Qui Sommes-Nous",
+    "mission": {
+      "title": "Notre Mission",
+      "description": "Former la prochaine génération de leaders d'Israël, forts spirituellement et physiquement."
+    },
+    "partner": {
+      "title": "Un cadre exceptionnel : La Yeshiva Or Vishua",
+      "description": "Notre partenariat avec la Yeshiva Or Vishua nous offre un cadre unique d'étude et de développement spirituel."
+    },
+    "testimonials": {
+      "title": "Ce qu'ils en disent"
+    }
+  },
+  "footer": {
+    "rights": "Tous droits réservés",
+    "privacy": "Politique de confidentialité",
+    "terms": "Mentions légales"
+  }
+}

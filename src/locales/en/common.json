@@ -1,0 +1,117 @@
+{
+  "nav": {
+    "home": "Home",
+    "program": "The Program",
+    "approach": "Our Approach",
+    "about": "The Yeshiva",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Oz LeIsrael",
+    "subtitle": "The Strength of Torah, The Elite of Tsahal",
+    "cta": "Join the Program"
+  },
+  "pillars": {
+    "spiritual": {
+      "title": "Spiritual Preparation",
+      "description": "In-depth Torah study within the Yeshiva"
+    },
+    "physical": {
+      "title": "Physical & Mental Preparation",
+      "description": "Elite training for special units"
+    },
+    "zionism": {
+      "title": "Zionism & Community",
+      "description": "Brotherhood and commitment to Israel"
+    }
+  },
+  "mission": {
+    "title": "Our Mission",
+    "elite": "Become the elite",
+    "unity": "Unite Torah and Army",
+    "integrate": "Join the best units",
+    "framework": "A unique Yeshiva framework"
+  },
+  "testimonials": {
+    "title": "They did it",
+    "subtitle": "Discover the Oz LeIsrael experience"
+  },
+  "cta": {
+    "ready": "Ready to take on the challenge?",
+    "talk": "Tell us about your project"
+  },
+  "contact": {
+    "title": "Contact",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "phone": "Phone (WhatsApp)",
+    "age": "Age",
+    "country": "Country of Origin",
+    "message": "Message (optional)",
+    "submit": "Send my application",
+    "noWait": "Don't wait any longer. Contact us now for an interview.",
+    "whatsapp": "Contact us on WhatsApp"
+  },
+  "program": {
+    "title": "The Program",
+    "filters": {
+      "videos": "Videos",
+      "photos": "Photos",
+      "schedule": "Typical Day",
+      "testimonials": "Testimonials"
+    },
+    "schedule": {
+      "title": "A Typical Day",
+      "morning": "Morning",
+      "afternoon": "Afternoon",
+      "evening": "Evening"
+    },
+    "cta": "I want to live this"
+  },
+  "approach": {
+    "title": "Our Approach",
+    "intro": "Oz LeIsrael is based on the perfect balance between spiritual strengthening and physical excellence.",
+    "kodesh": {
+      "title": "Kodesh - Study",
+      "description": "A solid study program within Yeshiva Or Vishua. Goals: grow spiritually, build strong foundations before the army."
+    },
+    "hol": {
+      "title": "Hol - Physical & Mental",
+      "description": "Elite physical and mental preparation. Goals: pass the tests of the best units (Sayerot), develop a steel mindset."
+    },
+    "process": {
+      "title": "How to join us",
+      "step1": "Contact",
+      "step1Desc": "Form / WhatsApp",
+      "step2": "Personal Interview",
+      "step2Desc": "Goals assessment",
+      "step3": "Acceptance",
+      "step3Desc": "Program start",
+      "step4": "Training",
+      "step4Desc": "Study & sports",
+      "step5": "Goal: Tsahal",
+      "step5Desc": "Elite units integration"
+    },
+    "start": "Your future starts here"
+  },
+  "about": {
+    "title": "Who We Are",
+    "mission": {
+      "title": "Our Mission",
+      "description": "Train the next generation of Israel's leaders, strong spiritually and physically."
+    },
+    "partner": {
+      "title": "An exceptional framework: Yeshiva Or Vishua",
+      "description": "Our partnership with Yeshiva Or Vishua offers us a unique framework for study and spiritual development."
+    },
+    "testimonials": {
+      "title": "What they say"
+    }
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  }
+}
