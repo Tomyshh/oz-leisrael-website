@@ -54,7 +54,7 @@ export default function HeroSection() {
             }}
           >
             Forge ton corps. Élève ton âme.<br />
-            <span className="font-semibold">Deviens un soldat d'élite.</span>
+            <span className="font-semibold">Deviens un soldat d&apos;élite.</span>
           </motion.p>
 
           <motion.div

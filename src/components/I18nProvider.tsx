@@ -29,8 +29,8 @@ export default function I18nProvider({ children, initialLocale = 'fr' }: I18nPro
 
   const loadTranslations = async (newLocale: Locale) => {
     try {
-      const module = await import(`@/locales/${newLocale}/common.json`);
-      setTranslations(module.default);
+      const translationModule = await import(`@/locales/${newLocale}/common.json`);
+      setTranslations(translationModule.default);
     } catch (error) {
       console.error('Error loading translations:', error);
     }

@@ -118,7 +118,7 @@ export default function TestimonialsSection() {
 
             <div className="p-6">
               <blockquote className="text-lg text-gray-700 italic mb-4">
-                "{currentTestimonial.quote}"
+                &quot;{currentTestimonial.quote}&quot;
               </blockquote>
               <div className="flex items-center justify-between">
                 <div>

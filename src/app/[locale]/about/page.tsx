@@ -74,7 +74,7 @@ export default function AboutPage() {
           >
             <h1 className="heading-1 mb-4">{t('about.title')}</h1>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              Former les futurs défenseurs d'Israël avec les valeurs de la Torah
+              Former les futurs défenseurs d&apos;Israël avec les valeurs de la Torah
             </p>
           </motion.div>
         </div>
@@ -94,9 +94,9 @@ export default function AboutPage() {
               {t('about.mission.description')}
             </p>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Notre vision est claire : créer une génération de soldats d'élite qui portent 
-              en eux la force de la Torah et l'engagement absolu envers leur peuple et leur terre. 
-              Nous croyons qu'un soldat fort spirituellement est invincible sur le terrain.
+              Notre vision est claire : créer une génération de soldats d&apos;élite qui portent 
+              en eux la force de la Torah et l&apos;engagement absolu envers leur peuple et leur terre. 
+              Nous croyons qu&apos;un soldat fort spirituellement est invincible sur le terrain.
             </p>
           </motion.div>
 
@@ -140,9 +140,9 @@ export default function AboutPage() {
                 {t('about.partner.description')}
               </p>
               <p className="text-gray-700 mb-4">
-                La Yeshiva Or Vishua est reconnue pour son excellence dans l'enseignement de la Torah 
+                La Yeshiva Or Vishua est reconnue pour son excellence dans l&apos;enseignement de la Torah 
                 et son approche moderne de la formation spirituelle. Située dans un cadre inspirant, 
-                elle offre un environnement idéal pour l'étude approfondie et le développement personnel.
+                elle offre un environnement idéal pour l&apos;étude approfondie et le développement personnel.
               </p>
               <ul className="space-y-3">
                 <li className="flex items-start">
@@ -151,7 +151,7 @@ export default function AboutPage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-primary-600 mr-2">✓</span>
-                  <span>Programme d'étude structuré et intensif</span>
+                  <span>Programme d&apos;étude structuré et intensif</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-primary-600 mr-2">✓</span>
@@ -217,7 +217,7 @@ export default function AboutPage() {
                 >
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                 </svg>
-                <p className="text-gray-700 italic mb-6">"{testimonial.quote}"</p>
+                <p className="text-gray-700 italic mb-6">&quot;{testimonial.quote}&quot;</p>
                 <div className="border-t pt-4">
                   <p className="font-semibold">{testimonial.author}</p>
                   <p className="text-sm text-gray-600">{testimonial.role}</p>

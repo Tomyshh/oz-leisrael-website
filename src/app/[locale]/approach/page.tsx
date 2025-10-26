@@ -151,7 +151,7 @@ export default function ApproachPage() {
                   </li>
                   <li className="flex items-start">
                     <span className="text-primary-600 mr-2">•</span>
-                    <span>Simulation des tests d'unités d'élite</span>
+                    <span>Simulation des tests d&apos;unités d&apos;élite</span>
                   </li>
                 </ul>
               </div>
