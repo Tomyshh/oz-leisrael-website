@@ -5,7 +5,7 @@ import { useI18n } from '@/lib/i18n';
 import Link from 'next/link';
 
 export default function TermsPage() {
-  const { t, locale } = useI18n();
+  const { t } = useI18n();
 
   const sections = [
     'section1',
@@ -55,7 +55,7 @@ export default function TermsPage() {
           {/* Back Link */}
           <div className="mt-8 text-center">
             <Link
-              href={`/${locale}`}
+              href="/fr"
               className="inline-flex items-center text-primary-600 hover:text-primary-700 font-semibold"
             >
               ← Retour à l&apos;accueil

@@ -11,11 +11,11 @@ import { usePathname } from 'next/navigation';
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const { t, locale, changeLocale } = useI18n();
+  const { t } = useI18n();
   const pathname = usePathname();
   
   // Vérifier si on est sur la page d'accueil
-  const isHomePage = pathname === `/${locale}` || pathname === '/fr' || pathname === '/en';
+  const isHomePage = pathname === '/fr' || pathname === '/fr/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,11 +36,11 @@ export default function Header() {
   }, [isHomePage]);
 
   const navigation = [
-    { name: t('nav.home'), href: `/${locale}` },
-    { name: t('nav.program'), href: `/${locale}/program` },
-    { name: t('nav.approach'), href: `/${locale}/approach` },
-    { name: t('nav.about'), href: `/${locale}/about` },
-    { name: t('nav.contact'), href: `/${locale}/contact` },
+    { name: t('nav.home'), href: '/fr' },
+    { name: t('nav.program'), href: '/fr/program' },
+    { name: t('nav.approach'), href: '/fr/approach' },
+    { name: t('nav.about'), href: '/fr/about' },
+    { name: t('nav.contact'), href: '/fr/contact' },
   ];
 
   return (
@@ -56,7 +56,7 @@ export default function Header() {
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href={`/${locale}`} className="flex items-center">
+          <Link href="/fr" className="flex items-center">
             <Image
               src="/images/logo.png"
               alt="Oz LeIsrael"
@@ -86,34 +86,6 @@ export default function Header() {
                 {item.name}
               </Link>
             ))}
-
-            {/* Language Switcher */}
-            <div className="flex items-center space-x-2">
-              <button
-                onClick={() => changeLocale('fr')}
-                className={`px-2 py-1 rounded transition-all duration-500 ${
-                  locale === 'fr'
-                    ? 'bg-primary-600 text-white'
-                    : isScrolled || !isHomePage
-                      ? 'bg-gray-200 text-gray-700'
-                      : 'bg-white/20 text-white backdrop-blur-sm hover:bg-white/30'
-                }`}
-              >
-                FR
-              </button>
-              <button
-                onClick={() => changeLocale('en')}
-                className={`px-2 py-1 rounded transition-all duration-500 ${
-                  locale === 'en'
-                    ? 'bg-primary-600 text-white'
-                    : isScrolled || !isHomePage
-                      ? 'bg-gray-200 text-gray-700'
-                      : 'bg-white/20 text-white backdrop-blur-sm hover:bg-white/30'
-                }`}
-              >
-                EN
-              </button>
-            </div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -152,42 +124,6 @@ export default function Header() {
                 {item.name}
               </Link>
             ))}
-
-            {/* Mobile Language Switcher */}
-            <div className={`flex items-center space-x-2 px-3 pt-3 border-t ${
-              isScrolled || !isHomePage ? 'border-gray-200' : 'border-white/20'
-            }`}>
-              <button
-                onClick={() => {
-                  changeLocale('fr');
-                  setIsMenuOpen(false);
-                }}
-                className={`px-3 py-1 rounded transition-all duration-500 ${
-                  locale === 'fr'
-                    ? 'bg-primary-600 text-white'
-                    : isScrolled || !isHomePage
-                      ? 'bg-gray-200 text-gray-700'
-                      : 'bg-white/20 text-white backdrop-blur-sm'
-                }`}
-              >
-                Français
-              </button>
-              <button
-                onClick={() => {
-                  changeLocale('en');
-                  setIsMenuOpen(false);
-                }}
-                className={`px-3 py-1 rounded transition-all duration-500 ${
-                  locale === 'en'
-                    ? 'bg-primary-600 text-white'
-                    : isScrolled || !isHomePage
-                      ? 'bg-gray-200 text-gray-700'
-                      : 'bg-white/20 text-white backdrop-blur-sm'
-                }`}
-              >
-                English
-              </button>
-            </div>
           </div>
         </motion.div>
       </nav>

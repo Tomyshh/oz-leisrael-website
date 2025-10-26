@@ -2,24 +2,22 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaFacebook, FaInstagram, FaYoutube } from 'react-icons/fa';
+import { FaInstagram } from 'react-icons/fa';
 import { useI18n } from '@/lib/i18n';
 
 export default function Footer() {
-  const { t, locale } = useI18n();
+  const { t } = useI18n();
 
   const navigation = [
-    { name: t('nav.home'), href: `/${locale}` },
-    { name: t('nav.program'), href: `/${locale}/program` },
-    { name: t('nav.approach'), href: `/${locale}/approach` },
-    { name: t('nav.about'), href: `/${locale}/about` },
-    { name: t('nav.contact'), href: `/${locale}/contact` },
+    { name: t('nav.home'), href: '/fr' },
+    { name: t('nav.program'), href: '/fr/program' },
+    { name: t('nav.approach'), href: '/fr/approach' },
+    { name: t('nav.about'), href: '/fr/about' },
+    { name: t('nav.contact'), href: '/fr/contact' },
   ];
 
   const socialLinks = [
-    { name: 'Facebook', icon: FaFacebook, href: '#' },
-    { name: 'Instagram', icon: FaInstagram, href: '#' },
-    { name: 'YouTube', icon: FaYoutube, href: '#' },
+    { name: 'Instagram', icon: FaInstagram, href: 'https://www.instagram.com/oz_leisrael/' },
   ];
 
   return (
@@ -70,7 +68,7 @@ export default function Footer() {
 
           {/* Social Links */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">Suivez-nous</h3>
+            <h3 className="font-semibold text-lg mb-4">Suivez-nous sur Instagram</h3>
             <div className="flex space-x-4">
               {socialLinks.map((social) => (
                 <a
@@ -79,8 +77,9 @@ export default function Footer() {
                   className="text-gray-600 hover:text-primary-600 transition-colors duration-200"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={social.name}
                 >
-                  <social.icon size={24} />
+                  <social.icon size={28} />
                 </a>
               ))}
             </div>
@@ -95,13 +94,13 @@ export default function Footer() {
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link
-                href={`/${locale}/privacy`}
+                href="/fr/privacy"
                 className="text-gray-600 hover:text-primary-600 text-sm transition-colors duration-200"
               >
                 {t('footer.privacy')}
               </Link>
               <Link
-                href={`/${locale}/terms`}
+                href="/fr/terms"
                 className="text-gray-600 hover:text-primary-600 text-sm transition-colors duration-200"
               >
                 {t('footer.terms')}
