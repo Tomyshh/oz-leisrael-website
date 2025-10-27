@@ -16,11 +16,6 @@ const MissionSection = dynamic(() => import('@/components/home/MissionSection'),
   ssr: true,
 });
 
-const TestimonialsSection = dynamic(() => import('@/components/home/TestimonialsSection'), {
-  loading: () => <div className="h-screen flex items-center justify-center">Chargement...</div>,
-  ssr: true,
-});
-
 const CTASection = dynamic(() => import('@/components/home/CTASection'), {
   loading: () => <div className="h-screen flex items-center justify-center">Chargement...</div>,
   ssr: true,
@@ -36,7 +31,6 @@ export default function HomePage() {
         <HeroSection />
         <PillarsSection />
         <MissionSection />
-        <TestimonialsSection />
         <CTASection />
       </div>
     </>

@@ -32,7 +32,7 @@ const values = [
 const testimonialQuotes = [
   {
     quote: 'Oz LeIsrael transforme des jeunes en leaders, prêts à servir avec excellence.',
-    author: 'Rav Goldstein',
+    author: 'Rav Avraham Journo',
     role: 'Directeur spirituel',
   },
   {
@@ -42,7 +42,7 @@ const testimonialQuotes = [
   },
   {
     quote: 'Nos élèves intègrent les meilleures unités car ils sont préparés dans toutes les dimensions.',
-    author: 'Moshe Ben-David',
+    author: 'Lior Azoulay',
     role: 'Instructeur en chef',
   },
 ];
