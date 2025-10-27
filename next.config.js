@@ -2,8 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   
-  // Optimisation des images - Configuration simplifiée pour production
+  // Optimisation des images - Désactivée pour standalone build
   images: {
+    unoptimized: true, // CRITIQUE pour standalone sur Render
     remotePatterns: [
       {
         protocol: 'http',
@@ -12,10 +13,6 @@ const nextConfig = {
         pathname: '/**',
       },
     ],
-    formats: ['image/webp'],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    minimumCacheTTL: 60,
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
