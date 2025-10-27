@@ -15,7 +15,7 @@ const pillars = [
   },
   {
     key: 'physical',
-    image: '/images/physical-preparation.png',
+    image: '/images/physical-preparation.jpg',
     href: '/approach#physical',
   },
   {

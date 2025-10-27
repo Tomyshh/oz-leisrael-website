@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   
-  // Optimisation des images
+  // Optimisation des images - Configuration simplifiée pour production
   images: {
     remotePatterns: [
       {
@@ -12,10 +12,12 @@ const nextConfig = {
         pathname: '/**',
       },
     ],
-    formats: ['image/avif', 'image/webp'],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    formats: ['image/webp'],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 60,
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   
   // Compression
@@ -27,48 +29,8 @@ const nextConfig = {
   // Optimisation des polices
   optimizeFonts: true,
   
-  // Optimisation du bundle
-  webpack: (config, { dev, isServer }) => {
-    // Production optimizations
-    if (!dev && !isServer) {
-      config.optimization = {
-        ...config.optimization,
-        moduleIds: 'deterministic',
-        runtimeChunk: 'single',
-        splitChunks: {
-          chunks: 'all',
-          cacheGroups: {
-            default: false,
-            vendors: false,
-            framework: {
-              name: 'framework',
-              chunks: 'all',
-              test: /[\\/]node_modules[\\/](react|react-dom|scheduler)[\\/]/,
-              priority: 40,
-              enforce: true,
-            },
-            lib: {
-              test: /[\\/]node_modules[\\/]/,
-              minChunks: 1,
-              priority: 30,
-              minSize: 20000,
-              name(module) {
-                const match = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/);
-                const packageName = match ? match[1] : 'lib';
-                return `lib.${packageName.replace('@', '')}`;
-              },
-            },
-            commons: {
-              name: 'commons',
-              minChunks: 2,
-              priority: 20,
-            },
-          },
-        },
-      };
-    }
-    return config;
-  },
+  // Configuration de production pour éviter les timeouts
+  output: 'standalone',
   
   // Headers de sécurité et performance
   async headers() {
