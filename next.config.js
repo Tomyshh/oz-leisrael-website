@@ -57,7 +57,10 @@ const nextConfig = {
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
+            // En développement : pas de cache. En production : cache long terme
+            value: process.env.NODE_ENV === 'production' 
+              ? 'public, max-age=31536000, immutable'
+              : 'no-cache, no-store, must-revalidate',
           },
         ],
       },

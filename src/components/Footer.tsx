@@ -31,11 +31,12 @@ function Footer() {
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center mb-4">
               <Image
-                src="/images/logo.png"
+                src="/images/logo.png?v=2"
                 alt="Oz LeIsrael"
                 width={40}
                 height={40}
                 className="mr-3"
+                unoptimized
               />
               <span className="font-display text-xl font-bold">Oz LeIsrael</span>
             </div>

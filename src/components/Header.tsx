@@ -17,6 +17,14 @@ function Header() {
   // Vérifier si on est sur la page d'accueil
   const isHomePage = useMemo(() => pathname === '/fr' || pathname === '/fr/', [pathname]);
 
+  // Fonction pour vérifier si le lien est actif
+  const isActive = useCallback((href: string) => {
+    if (href === '/fr') {
+      return pathname === '/fr' || pathname === '/fr/';
+    }
+    return pathname.startsWith(href);
+  }, [pathname]);
+
   useEffect(() => {
     const handleScroll = () => {
       // Sur la page d'accueil, on devient opaque après avoir scrollé
@@ -66,12 +74,13 @@ function Header() {
           {/* Logo */}
           <Link href="/fr" className="flex items-center">
             <Image
-              src="/images/logo.png"
+              src="/images/logo.png?v=2"
               alt="Oz LeIsrael"
               width={50}
               height={50}
               className="mr-3"
               priority
+              unoptimized
             />
             <span className={`font-display text-2xl font-bold transition-colors duration-500 ${
               isScrolled || !isHomePage ? 'text-primary-900' : 'text-white drop-shadow-lg'
@@ -82,19 +91,36 @@ function Header() {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={`transition-colors duration-500 font-medium ${
-                  isScrolled || !isHomePage 
-                    ? 'text-gray-700 hover:text-primary-600' 
-                    : 'text-white hover:text-gray-200 drop-shadow-lg'
-                }`}
-              >
-                {item.name}
-              </Link>
-            ))}
+            {navigation.map((item) => {
+              const active = isActive(item.href);
+              return (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="relative group"
+                >
+                  <span className={`transition-colors duration-500 font-medium ${
+                    isScrolled || !isHomePage 
+                      ? active 
+                        ? 'text-primary-600' 
+                        : 'text-gray-700 hover:text-primary-600'
+                      : 'text-white hover:text-gray-200 drop-shadow-lg'
+                  }`}>
+                    {item.name}
+                  </span>
+                  {/* Indicateur moderne pour l'onglet actif */}
+                  {active && (
+                    <motion.div
+                      layoutId="activeTab"
+                      className={`absolute -bottom-1 left-0 right-0 h-0.5 rounded-full ${
+                        isScrolled || !isHomePage ? 'bg-primary-600' : 'bg-white'
+                      }`}
+                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    />
+                  )}
+                </Link>
+              );
+            })}
           </div>
 
           {/* Mobile Menu Button */}
@@ -120,20 +146,33 @@ function Header() {
           }`}
         >
           <div className="pt-4 pb-3 space-y-3">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={`block px-3 py-2 rounded-md transition-colors duration-200 ${
-                  isScrolled || !isHomePage
-                    ? 'text-gray-700 hover:text-primary-600 hover:bg-gray-50'
-                    : 'text-white hover:text-gray-200 hover:bg-white/10'
-                }`}
-                onClick={closeMenu}
-              >
-                {item.name}
-              </Link>
-            ))}
+            {navigation.map((item) => {
+              const active = isActive(item.href);
+              return (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={`block px-3 py-2 rounded-md transition-colors duration-200 relative ${
+                    isScrolled || !isHomePage
+                      ? active
+                        ? 'text-primary-600 bg-primary-50 font-semibold'
+                        : 'text-gray-700 hover:text-primary-600 hover:bg-gray-50'
+                      : active
+                        ? 'text-white bg-white/20 font-semibold'
+                        : 'text-white hover:text-gray-200 hover:bg-white/10'
+                  }`}
+                  onClick={closeMenu}
+                >
+                  {item.name}
+                  {/* Indicateur visuel pour mobile */}
+                  {active && (
+                    <span className={`absolute left-0 top-0 bottom-0 w-1 rounded-r-full ${
+                      isScrolled || !isHomePage ? 'bg-primary-600' : 'bg-white'
+                    }`} />
+                  )}
+                </Link>
+              );
+            })}
           </div>
         </motion.div>
       </nav>

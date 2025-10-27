@@ -128,19 +128,21 @@ export default function ContactPage() {
                 </div>
               </motion.div>
 
-              {/* Image Card */}
+              {/* Logo Card */}
               <motion.div
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
                 className="space-y-8"
               >
-                <div className="relative h-96 rounded-lg overflow-hidden shadow-xl">
+                <div className="relative h-96 rounded-lg overflow-hidden shadow-xl bg-gradient-to-br from-primary-50 to-primary-100 flex items-center justify-center p-12">
                   <Image
-                    src="/images/contact-image.jpg"
-                    alt="Oz LeIsrael - Contactez-nous"
-                    fill
-                    className="object-cover"
+                    src="/images/logo.png?v=2"
+                    alt="Oz LeIsrael"
+                    width={300}
+                    height={300}
+                    className="object-contain"
+                    unoptimized
                   />
                 </div>
 
