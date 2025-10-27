@@ -18,6 +18,7 @@ Les images suivantes ont été optimisées :
 - ✅ Suppression du format AVIF (cause des problèmes sur Render)
 - ✅ Format WebP uniquement pour de meilleures performances
 - ✅ Mode `standalone` pour builds optimisés
+- ✅ Script automatique de copie des fichiers public/ et static/
 - ✅ Suppression du code splitting webpack agressif
 
 ## 📋 Étapes pour le Déploiement
@@ -26,7 +27,7 @@ Les images suivantes ont été optimisées :
 
 ```bash
 git add .
-git commit -m "fix: Optimisation des images pour production Render"
+git commit -m "fix: Configuration standalone avec copie automatique des assets"
 git push origin main
 ```
 
@@ -41,7 +42,7 @@ npm install && npm run build
 
 **Start Command:**
 ```bash
-npm start
+cd .next/standalone && node server.js
 ```
 
 **Environment Variables:**
@@ -49,6 +50,8 @@ npm start
 NODE_ENV=production
 NEXT_TELEMETRY_DISABLED=1
 ```
+
+⚠️ **IMPORTANT** : La commande de démarrage doit absolument être `cd .next/standalone && node server.js` pour utiliser le mode standalone optimisé.
 
 ### 3. Variables d'Environnement Recommandées
 
