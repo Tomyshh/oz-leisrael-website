@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useI18n } from '@/lib/i18n';
 import { FaGraduationCap, FaHandshake, FaMedal, FaStar } from 'react-icons/fa';
+import { memo, useMemo } from 'react';
 
 const missionItems = [
   {
@@ -24,14 +25,14 @@ const missionItems = [
   },
 ];
 
-export default function MissionSection() {
+function MissionSection() {
   const { t } = useI18n();
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
 
-  const containerVariants = {
+  const containerVariants = useMemo(() => ({
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -39,9 +40,9 @@ export default function MissionSection() {
         staggerChildren: 0.15,
       },
     },
-  };
+  }), []);
 
-  const itemVariants = {
+  const itemVariants = useMemo(() => ({
     hidden: { opacity: 0, x: -20 },
     visible: {
       opacity: 1,
@@ -50,7 +51,7 @@ export default function MissionSection() {
         duration: 0.6,
       },
     },
-  };
+  }), []);
 
   return (
     <section ref={ref} className="section-padding">
@@ -78,7 +79,7 @@ export default function MissionSection() {
             >
               <div className="flex-shrink-0">
                 <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center">
-                  <item.icon className="w-6 h-6 text-primary-600" />
+                  <item.icon className="w-6 h-6 text-primary-600" aria-hidden="true" />
                 </div>
               </div>
               <div>
@@ -93,3 +94,5 @@ export default function MissionSection() {
     </section>
   );
 }
+
+export default memo(MissionSection);

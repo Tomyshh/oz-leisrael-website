@@ -2,10 +2,10 @@
 
 import { FaWhatsapp } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import { memo, useMemo } from 'react';
 
-export default function WhatsAppButton() {
-  const whatsappNumber = '972537081718';
-  const whatsappLink = `https://wa.me/${whatsappNumber}`;
+function WhatsAppButton() {
+  const whatsappLink = useMemo(() => 'https://wa.me/972537081718', []);
 
   return (
     <motion.a
@@ -17,8 +17,11 @@ export default function WhatsAppButton() {
       animate={{ scale: 1 }}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
+      aria-label="Contactez-nous sur WhatsApp"
     >
-      <FaWhatsapp size={24} />
+      <FaWhatsapp size={24} aria-hidden="true" />
     </motion.a>
   );
 }
+
+export default memo(WhatsAppButton);

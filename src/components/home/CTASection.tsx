@@ -5,16 +5,16 @@ import { useInView } from 'react-intersection-observer';
 import Link from 'next/link';
 import { useI18n } from '@/lib/i18n';
 import { FaWhatsapp } from 'react-icons/fa';
+import { memo, useMemo } from 'react';
 
-export default function CTASection() {
+function CTASection() {
   const { t } = useI18n();
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
 
-  const whatsappNumber = '972537081718';
-  const whatsappLink = `https://wa.me/${whatsappNumber}`;
+  const whatsappLink = useMemo(() => 'https://wa.me/972537081718', []);
 
   return (
     <section ref={ref} className="section-padding bg-primary-50 border-t border-primary-100">
@@ -41,8 +41,9 @@ export default function CTASection() {
               target="_blank"
               rel="noopener noreferrer"
               className="bg-green-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-green-600 transition-colors duration-200 inline-flex items-center justify-center"
+              aria-label="Contactez-nous sur WhatsApp"
             >
-              <FaWhatsapp className="mr-2" size={20} />
+              <FaWhatsapp className="mr-2" size={20} aria-hidden="true" />
               {t('contact.whatsapp')}
             </a>
           </div>
@@ -51,3 +52,5 @@ export default function CTASection() {
     </section>
   );
 }
+
+export default memo(CTASection);

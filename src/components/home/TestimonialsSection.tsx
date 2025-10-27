@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, memo, useMemo, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useI18n } from '@/lib/i18n';
@@ -34,7 +34,7 @@ const testimonials = [
   },
 ];
 
-export default function TestimonialsSection() {
+function TestimonialsSection() {
   const { t } = useI18n();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -43,17 +43,22 @@ export default function TestimonialsSection() {
     threshold: 0.1,
   });
 
-  const nextTestimonial = () => {
+  const nextTestimonial = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % testimonials.length);
     setIsPlaying(false);
-  };
+  }, []);
 
-  const prevTestimonial = () => {
+  const prevTestimonial = useCallback(() => {
     setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
     setIsPlaying(false);
-  };
+  }, []);
 
-  const currentTestimonial = testimonials[currentIndex];
+  const handleDotClick = useCallback((index: number) => {
+    setCurrentIndex(index);
+    setIsPlaying(false);
+  }, []);
+
+  const currentTestimonial = useMemo(() => testimonials[currentIndex], [currentIndex]);
 
   return (
     <section ref={ref} className="section-padding bg-gray-50">
@@ -89,12 +94,15 @@ export default function TestimonialsSection() {
                       src={currentTestimonial.thumbnail}
                       alt={currentTestimonial.name}
                       fill
+                      sizes="(max-width: 768px) 100vw, 896px"
+                      quality={85}
                       className="object-cover"
                     />
                     <div className="absolute inset-0 bg-black/30" />
                     <button
                       onClick={() => setIsPlaying(true)}
                       className="absolute inset-0 flex items-center justify-center group"
+                      aria-label="Lire la vidéo"
                     >
                       <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
                         <FaPlay className="w-8 h-8 text-primary-600 ml-1" />
@@ -110,6 +118,7 @@ export default function TestimonialsSection() {
                     src={currentTestimonial.videoUrl}
                     controls
                     autoPlay
+                    preload="metadata"
                     className="w-full h-96"
                   />
                 )}
@@ -129,12 +138,14 @@ export default function TestimonialsSection() {
                   <button
                     onClick={prevTestimonial}
                     className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors duration-200"
+                    aria-label="Témoignage précédent"
                   >
                     <FaChevronLeft className="w-4 h-4" />
                   </button>
                   <button
                     onClick={nextTestimonial}
                     className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors duration-200"
+                    aria-label="Témoignage suivant"
                   >
                     <FaChevronRight className="w-4 h-4" />
                   </button>
@@ -148,15 +159,13 @@ export default function TestimonialsSection() {
             {testimonials.map((_, index) => (
               <button
                 key={index}
-                onClick={() => {
-                  setCurrentIndex(index);
-                  setIsPlaying(false);
-                }}
+                onClick={() => handleDotClick(index)}
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${
                   index === currentIndex
                     ? 'w-8 bg-primary-600'
                     : 'bg-gray-300 hover:bg-gray-400'
                 }`}
+                aria-label={`Aller au témoignage ${index + 1}`}
               />
             ))}
           </div>
@@ -165,3 +174,5 @@ export default function TestimonialsSection() {
     </section>
   );
 }
+
+export default memo(TestimonialsSection);

@@ -4,21 +4,24 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { FaInstagram } from 'react-icons/fa';
 import { useI18n } from '@/lib/i18n';
+import { memo, useMemo } from 'react';
 
-export default function Footer() {
+function Footer() {
   const { t } = useI18n();
 
-  const navigation = [
+  const navigation = useMemo(() => [
     { name: t('nav.home'), href: '/fr' },
     { name: t('nav.program'), href: '/fr/program' },
     { name: t('nav.approach'), href: '/fr/approach' },
     { name: t('nav.about'), href: '/fr/about' },
     { name: t('nav.contact'), href: '/fr/contact' },
-  ];
+  ], [t]);
 
-  const socialLinks = [
+  const socialLinks = useMemo(() => [
     { name: 'Instagram', icon: FaInstagram, href: 'https://www.instagram.com/oz_leisrael/' },
-  ];
+  ], []);
+
+  const currentYear = useMemo(() => new Date().getFullYear(), []);
 
   return (
     <footer className="bg-gray-100 text-gray-900 border-t border-gray-200">
@@ -90,7 +93,7 @@ export default function Footer() {
         <div className="mt-12 pt-8 border-t border-gray-300">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-600 text-sm">
-              © {new Date().getFullYear()} Oz LeIsrael. {t('footer.rights')}.
+              © {currentYear} Oz LeIsrael. {t('footer.rights')}.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link
@@ -112,3 +115,5 @@ export default function Footer() {
     </footer>
   );
 }
+
+export default memo(Footer);

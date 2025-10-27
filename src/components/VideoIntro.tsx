@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, memo, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaTimes } from 'react-icons/fa';
 import Image from 'next/image';
@@ -9,7 +9,7 @@ interface VideoIntroProps {
   onComplete: () => void;
 }
 
-export default function VideoIntro({ onComplete }: VideoIntroProps) {
+function VideoIntro({ onComplete }: VideoIntroProps) {
   const [showVideo, setShowVideo] = useState(true);
   const [needsClick, setNeedsClick] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -31,7 +31,6 @@ export default function VideoIntro({ onComplete }: VideoIntroProps) {
           setNeedsClick(false);
         } catch (error) {
           // Si bloqué, attendre un clic utilisateur
-          console.log("Autoplay bloqué, clic requis");
           setNeedsClick(true);
         }
       }
@@ -43,17 +42,28 @@ export default function VideoIntro({ onComplete }: VideoIntroProps) {
     };
   }, [onComplete]);
 
-  const handleSkip = () => {
+  const handleSkip = useCallback(() => {
     sessionStorage.setItem('hasSeenIntroVideo', 'true');
     setShowVideo(false);
     onComplete();
-  };
+  }, [onComplete]);
 
-  const handleVideoEnd = () => {
+  const handleVideoEnd = useCallback(() => {
     sessionStorage.setItem('hasSeenIntroVideo', 'true');
     setShowVideo(false);
     onComplete();
-  };
+  }, [onComplete]);
+
+  const handlePlayClick = useCallback(async () => {
+    if (videoRef.current) {
+      try {
+        await videoRef.current.play();
+        setNeedsClick(false);
+      } catch (error) {
+        console.error("Erreur lecture vidéo:", error);
+      }
+    }
+  }, []);
 
   if (!showVideo) return null;
 
@@ -70,10 +80,12 @@ export default function VideoIntro({ onComplete }: VideoIntroProps) {
           ref={videoRef}
           autoPlay
           playsInline
+          preload="metadata"
           className="w-full h-full object-cover"
           onEnded={handleVideoEnd}
         >
           <source src="/videos/first-presentation.mp4" type="video/mp4" />
+          Votre navigateur ne supporte pas la lecture de vidéos.
         </video>
 
         {/* Logo en haut à gauche */}
@@ -89,6 +101,7 @@ export default function VideoIntro({ onComplete }: VideoIntroProps) {
             width={80}
             height={80}
             className="drop-shadow-2xl"
+            priority
           />
         </motion.div>
 
@@ -99,9 +112,10 @@ export default function VideoIntro({ onComplete }: VideoIntroProps) {
           transition={{ delay: 1.5 }}
           onClick={handleSkip}
           className="absolute top-8 right-8 z-50 bg-white text-gray-900 px-8 py-4 rounded-lg font-bold hover:bg-gray-100 transition-all duration-300 flex items-center gap-3 shadow-2xl uppercase tracking-wider text-sm"
+          aria-label="Accéder au site"
         >
           <span>Accéder au site</span>
-          <FaTimes size={18} />
+          <FaTimes size={18} aria-hidden="true" />
         </motion.button>
 
         {/* Indicateur de clic si autoplay bloqué */}
@@ -110,16 +124,7 @@ export default function VideoIntro({ onComplete }: VideoIntroProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             className="absolute inset-0 flex items-center justify-center z-40 cursor-pointer"
-            onClick={async () => {
-              if (videoRef.current) {
-                try {
-                  await videoRef.current.play();
-                  setNeedsClick(false);
-                } catch (error) {
-                  console.log("Erreur lecture vidéo:", error);
-                }
-              }
-            }}
+            onClick={handlePlayClick}
           >
             <div className="bg-black/70 backdrop-blur-sm text-white px-12 py-8 rounded-2xl text-center">
               <p className="text-2xl font-bold mb-3">Cliquez pour lancer la vidéo</p>
@@ -142,3 +147,5 @@ export default function VideoIntro({ onComplete }: VideoIntroProps) {
     </AnimatePresence>
   );
 }
+
+export default memo(VideoIntro);

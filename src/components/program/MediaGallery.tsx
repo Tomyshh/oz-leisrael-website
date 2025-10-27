@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, memo, useMemo } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { FaPlay, FaTimes } from 'react-icons/fa';
@@ -70,13 +70,13 @@ interface MediaGalleryProps {
   type: 'video' | 'photo';
 }
 
-export default function MediaGallery({ type }: MediaGalleryProps) {
+function MediaGallery({ type }: MediaGalleryProps) {
   const { locale } = useI18n();
   const [selectedItem, setSelectedItem] = useState<MediaItem | null>(null);
   
-  const filteredItems = mediaItems.filter(item => item.type === type);
+  const filteredItems = useMemo(() => mediaItems.filter(item => item.type === type), [type]);
 
-  const containerVariants = {
+  const containerVariants = useMemo(() => ({
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -84,9 +84,9 @@ export default function MediaGallery({ type }: MediaGalleryProps) {
         staggerChildren: 0.1,
       },
     },
-  };
+  }), []);
 
-  const itemVariants = {
+  const itemVariants = useMemo(() => ({
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
@@ -95,7 +95,7 @@ export default function MediaGallery({ type }: MediaGalleryProps) {
         duration: 0.4,
       },
     },
-  };
+  }), []);
 
   return (
     <>
@@ -118,6 +118,8 @@ export default function MediaGallery({ type }: MediaGalleryProps) {
                   src={item.thumbnail}
                   alt={locale === 'fr' ? item.title : item.titleEn}
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  quality={85}
                   className="object-cover transition-transform duration-300 group-hover:scale-110"
                 />
                 {item.type === 'video' && (
@@ -150,6 +152,7 @@ export default function MediaGallery({ type }: MediaGalleryProps) {
           <button
             className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
             onClick={() => setSelectedItem(null)}
+            aria-label="Fermer"
           >
             <FaTimes size={24} />
           </button>
@@ -160,6 +163,7 @@ export default function MediaGallery({ type }: MediaGalleryProps) {
                 src={selectedItem.url}
                 controls
                 autoPlay
+                preload="metadata"
                 className="w-full rounded-lg"
               />
             ) : (
@@ -169,6 +173,8 @@ export default function MediaGallery({ type }: MediaGalleryProps) {
                 width={1200}
                 height={800}
                 className="w-full h-auto rounded-lg"
+                sizes="90vw"
+                quality={90}
               />
             )}
             <h3 className="text-white text-xl font-semibold mt-4 text-center">
@@ -180,3 +186,5 @@ export default function MediaGallery({ type }: MediaGalleryProps) {
     </>
   );
 }
+
+export default memo(MediaGallery);

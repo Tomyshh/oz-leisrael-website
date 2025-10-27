@@ -12,12 +12,18 @@ const montserrat = Montserrat({
   subsets: ['latin'],
   variable: '--font-montserrat',
   display: 'swap',
+  preload: true,
+  fallback: ['system-ui', 'arial'],
+  adjustFontFallback: true,
 });
 
 const oswald = Oswald({ 
   subsets: ['latin'],
   variable: '--font-oswald',
   display: 'swap',
+  preload: true,
+  fallback: ['system-ui', 'arial'],
+  adjustFontFallback: true,
 });
 
 export default function LocaleLayout({
@@ -68,6 +74,29 @@ export default function LocaleLayout({
         <title>Oz LeIsrael - La Force de la Torah, l&apos;Elite de Tsahal</title>
         <meta name="description" content="Programme unique combinant préparation spirituelle et physique pour intégrer l'élite de Tsahal" />
         <meta name="keywords" content="Tsahal, IDF, Torah, Yeshiva, préparation militaire, Israël, élite, sayerot" />
+        
+        {/* Viewport et responsive */}
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+        
+        {/* Performance hints */}
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        
+        {/* Theme color */}
+        <meta name="theme-color" content="#000000" />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="Oz LeIsrael - La Force de la Torah, l'Elite de Tsahal" />
+        <meta property="og:description" content="Programme unique combinant préparation spirituelle et physique pour intégrer l'élite de Tsahal" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/images/cover.png" />
+        
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Oz LeIsrael - La Force de la Torah, l'Elite de Tsahal" />
+        <meta name="twitter:description" content="Programme unique combinant préparation spirituelle et physique pour intégrer l'élite de Tsahal" />
+        <meta name="twitter:image" content="/images/cover.png" />
       </head>
       <body className="font-sans">
         <I18nProvider initialLocale={params.locale as 'fr' | 'en'}>

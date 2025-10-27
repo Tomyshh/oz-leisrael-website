@@ -5,6 +5,7 @@ import { useInView } from 'react-intersection-observer';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useI18n } from '@/lib/i18n';
+import { memo, useMemo } from 'react';
 
 const pillars = [
   {
@@ -14,7 +15,7 @@ const pillars = [
   },
   {
     key: 'physical',
-    image: '/images/physical-preparation.jpg',
+    image: '/images/physical-preparation.png',
     href: '/approach#physical',
   },
   {
@@ -24,14 +25,14 @@ const pillars = [
   },
 ];
 
-export default function PillarsSection() {
+function PillarsSection() {
   const { t } = useI18n();
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
 
-  const containerVariants = {
+  const containerVariants = useMemo(() => ({
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -39,9 +40,9 @@ export default function PillarsSection() {
         staggerChildren: 0.2,
       },
     },
-  };
+  }), []);
 
-  const itemVariants = {
+  const itemVariants = useMemo(() => ({
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
@@ -50,7 +51,7 @@ export default function PillarsSection() {
         duration: 0.6,
       },
     },
-  };
+  }), []);
 
   return (
     <section ref={ref} className="section-padding bg-gray-50">
@@ -73,6 +74,8 @@ export default function PillarsSection() {
                     src={pillar.image}
                     alt={t(`pillars.${pillar.key}.title`)}
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 400px"
+                    quality={85}
                     className="object-cover transition-transform duration-300 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
@@ -98,3 +101,5 @@ export default function PillarsSection() {
     </section>
   );
 }
+
+export default memo(PillarsSection);

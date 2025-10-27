@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, memo, useMemo, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
@@ -8,14 +8,14 @@ import { HiMenu, HiX } from 'react-icons/hi';
 import { useI18n } from '@/lib/i18n';
 import { usePathname } from 'next/navigation';
 
-export default function Header() {
+function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { t } = useI18n();
   const pathname = usePathname();
   
   // Vérifier si on est sur la page d'accueil
-  const isHomePage = pathname === '/fr' || pathname === '/fr/';
+  const isHomePage = useMemo(() => pathname === '/fr' || pathname === '/fr/', [pathname]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,17 +31,25 @@ export default function Header() {
     // Initialiser l'état au chargement
     handleScroll();
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isHomePage]);
 
-  const navigation = [
+  const navigation = useMemo(() => [
     { name: t('nav.home'), href: '/fr' },
     { name: t('nav.program'), href: '/fr/program' },
     { name: t('nav.approach'), href: '/fr/approach' },
     { name: t('nav.about'), href: '/fr/about' },
     { name: t('nav.contact'), href: '/fr/contact' },
-  ];
+  ], [t]);
+
+  const toggleMenu = useCallback(() => {
+    setIsMenuOpen(prev => !prev);
+  }, []);
+
+  const closeMenu = useCallback(() => {
+    setIsMenuOpen(false);
+  }, []);
 
   return (
     <header
@@ -63,6 +71,7 @@ export default function Header() {
               width={50}
               height={50}
               className="mr-3"
+              priority
             />
             <span className={`font-display text-2xl font-bold transition-colors duration-500 ${
               isScrolled || !isHomePage ? 'text-primary-900' : 'text-white drop-shadow-lg'
@@ -90,12 +99,13 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            onClick={toggleMenu}
             className={`lg:hidden transition-colors duration-500 ${
               isScrolled || !isHomePage 
                 ? 'text-gray-700 hover:text-primary-600' 
                 : 'text-white hover:text-gray-200'
             }`}
+            aria-label="Menu"
           >
             {isMenuOpen ? <HiX size={24} /> : <HiMenu size={24} />}
           </button>
@@ -119,7 +129,7 @@ export default function Header() {
                     ? 'text-gray-700 hover:text-primary-600 hover:bg-gray-50'
                     : 'text-white hover:text-gray-200 hover:bg-white/10'
                 }`}
-                onClick={() => setIsMenuOpen(false)}
+                onClick={closeMenu}
               >
                 {item.name}
               </Link>
@@ -130,3 +140,5 @@ export default function Header() {
     </header>
   );
 }
+
+export default memo(Header);

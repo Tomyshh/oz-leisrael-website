@@ -50,8 +50,8 @@ const config: Config = {
         }
       },
       fontFamily: {
-        sans: ['Montserrat', 'system-ui', 'sans-serif'],
-        display: ['Oswald', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-montserrat)', 'system-ui', 'sans-serif'],
+        display: ['var(--font-oswald)', 'system-ui', 'sans-serif'],
       },
       animation: {
         fadeIn: 'fadeIn 0.5s ease-in-out',
@@ -78,6 +78,10 @@ const config: Config = {
         },
       },
     },
+  },
+  // Optimisation de production
+  future: {
+    hoverOnlyWhenSupported: true,
   },
   plugins: [],
 }
