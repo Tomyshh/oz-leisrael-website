@@ -140,7 +140,7 @@ export default function AboutPage() {
                 {t('about.partner.description')}
               </p>
               <p className="text-gray-700 mb-4">
-                La Yeshiva Or Vishua est reconnue pour son excellence dans l&apos;enseignement de la Torah 
+                La mekhina Oz LeIsrael est reconnue pour son excellence dans l&apos;enseignement de la Torah 
                 et son approche moderne de la formation spirituelle. Située dans un cadre inspirant, 
                 elle offre un environnement idéal pour l&apos;étude approfondie et le développement personnel.
               </p>
@@ -173,15 +173,15 @@ export default function AboutPage() {
               <div className="relative h-96 rounded-lg overflow-hidden shadow-xl">
                 <Image
                   src="/images/yeshiva-or-vishua.jpg"
-                  alt="Yeshiva Or Vishua"
+                  alt="La mekhina Oz LeIsrael"
                   fill
                   className="object-cover"
                 />
               </div>
               <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-lg shadow-lg">
                 <div className="text-center">
-                  <p className="font-display text-2xl font-bold text-primary-600">Yeshiva</p>
-                  <p className="font-display text-2xl font-bold text-primary-600">Or Vishua</p>
+                  <p className="font-display text-2xl font-bold text-primary-600">La mekhina</p>
+                  <p className="font-display text-2xl font-bold text-primary-600">Oz LeIsrael</p>
                 </div>
               </div>
             </motion.div>

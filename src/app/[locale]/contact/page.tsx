@@ -81,8 +81,8 @@ export default function ContactPage() {
                       <div className="ml-4">
                         <p className="font-semibold text-lg mb-1">Adresse</p>
                         <p className="text-gray-600">
-                          Yeshiva Or Vishua<br />
-                          Israël
+                          Amos 24<br />
+                          Nesher, Israël
                         </p>
                       </div>
                     </div>
@@ -109,10 +109,10 @@ export default function ContactPage() {
                       <div className="ml-4">
                         <p className="font-semibold text-lg mb-1">Email</p>
                         <a 
-                          href="mailto:contact@ozleisrael.org"
+                          href="mailto:mehinaozleisrael@gmail.com"
                           className="text-primary-600 hover:text-primary-700 font-medium"
                         >
-                          contact@ozleisrael.org
+                          mehinaozleisrael@gmail.com
                         </a>
                       </div>
                     </div>

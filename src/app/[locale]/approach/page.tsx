@@ -75,7 +75,7 @@ export default function ApproachPage() {
             >
               <div className="relative h-64">
                 <Image
-                  src="/images/kodesh-study.jpg"
+                  src="/images/kodesh-study.jpeg"
                   alt="Étude de la Torah"
                   fill
                   className="object-cover"
@@ -121,7 +121,7 @@ export default function ApproachPage() {
             >
               <div className="relative h-64">
                 <Image
-                  src="/images/hol-training.jpg"
+                  src="/images/hol-training.jpeg"
                   alt="Entraînement physique"
                   fill
                   className="object-cover"
