@@ -8,7 +8,7 @@ import Image from 'next/image';
 export default function ContactPage() {
   const { t } = useI18n();
 
-  const whatsappNumber = '972537081718';
+  const whatsappNumber = '972585767105';
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=Bonjour%2C%20je%20souhaite%20obtenir%20plus%20d%27informations%20sur%20le%20programme%20Oz%20LeIsrael.`;
 
   return (
@@ -59,7 +59,7 @@ export default function ContactPage() {
                 {t('contact.whatsapp')}
               </a>
               <p className="text-lg text-gray-600 mt-6 font-semibold">
-                +972 53 708 17 18
+                +972 58 576 71 05
               </p>
             </motion.div>
 
@@ -81,8 +81,8 @@ export default function ContactPage() {
                       <div className="ml-4">
                         <p className="font-semibold text-lg mb-1">Adresse</p>
                         <p className="text-gray-600">
-                          Amos 24<br />
-                          Nesher, Israël
+                          Amos 26א<br />
+                          Haifa, Israël
                         </p>
                       </div>
                     </div>
@@ -93,12 +93,20 @@ export default function ContactPage() {
                       </div>
                       <div className="ml-4">
                         <p className="font-semibold text-lg mb-1">Téléphone</p>
-                        <a 
-                          href={`tel:${whatsappNumber}`}
-                          className="text-primary-600 hover:text-primary-700 font-medium"
-                        >
-                          +972 53 708 17 18
-                        </a>
+                        <div className="space-y-1">
+                          <a 
+                            href={`tel:${whatsappNumber}`}
+                            className="text-primary-600 hover:text-primary-700 font-medium block"
+                          >
+                            +972 58 576 71 05
+                          </a>
+                          <a 
+                            href="tel:+33759661499"
+                            className="text-primary-600 hover:text-primary-700 font-medium block text-sm"
+                          >
+                            +33 7 59 66 14 99 (France)
+                          </a>
+                        </div>
                       </div>
                     </div>
 
@@ -123,6 +131,13 @@ export default function ContactPage() {
                     <p className="text-gray-600">
                       Dimanche - Jeudi : 9h00 - 20h00<br />
                       Vendredi : 9h00 - 14h00
+                    </p>
+                  </div>
+
+                  <div className="mt-8 pt-6 border-t border-gray-200">
+                    <p className="text-gray-700 font-medium">
+                      Rav Avraham Journo<br />
+                      <span className="text-gray-600 text-sm">Responsable du programme OZ LÉISRAEL</span>
                     </p>
                   </div>
                 </div>
@@ -166,7 +181,7 @@ export default function ContactPage() {
                     </li>
                     <li className="flex items-start">
                       <span className="text-primary-400 mr-2">✓</span>
-                      <span>Visiter la Yeshiva</span>
+                      <span>Visiter la Mekhina</span>
                     </li>
                   </ul>
                 </div>

@@ -85,8 +85,8 @@ function HeroSection() {
               fontWeight: '300'
             }}
           >
-            Forge ton corps. Élève ton âme.<br />
-            <span className="font-semibold">Deviens un soldat d&apos;élite.</span>
+            Là où la Torah forge l&apos;esprit, le sport renforce le corps,<br />
+            <span className="font-semibold">et Israël révèle ta mission</span>
           </motion.p>
 
           <motion.div {...buttonVariants}>

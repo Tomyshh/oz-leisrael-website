@@ -140,7 +140,7 @@ export default function AboutPage() {
                 {t('about.partner.description')}
               </p>
               <p className="text-gray-700 mb-4">
-                La mekhina Oz LeIsrael est reconnue pour son excellence dans l&apos;enseignement de la Torah 
+                La <a href="https://orvishua.net/" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:text-primary-700 font-semibold underline">Yeshiva Or Vishua</a> est reconnue pour son excellence dans l&apos;enseignement de la Torah 
                 et son approche moderne de la formation spirituelle. Située dans un cadre inspirant, 
                 elle offre un environnement idéal pour l&apos;étude approfondie et le développement personnel.
               </p>

@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { memo, useMemo } from 'react';
 
 function WhatsAppButton() {
-  const whatsappLink = useMemo(() => 'https://wa.me/972537081718', []);
+  const whatsappLink = useMemo(() => 'https://wa.me/972585767105', []);
 
   return (
     <motion.a

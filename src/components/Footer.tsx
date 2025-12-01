@@ -47,9 +47,14 @@ function Footer() {
             {/* Partner Logo */}
             <div className="mt-6">
               <p className="text-sm text-gray-600 mb-2">En partenariat avec</p>
-              <div className="bg-primary-50 border border-primary-200 p-3 rounded inline-block">
+              <a 
+                href="https://orvishua.net/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="bg-primary-50 border border-primary-200 p-3 rounded inline-block hover:bg-primary-100 transition-colors duration-200"
+              >
                 <span className="text-primary-900 font-bold">Yeshiva Or Vishua</span>
-              </div>
+              </a>
             </div>
           </div>
 

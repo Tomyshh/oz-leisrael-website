@@ -73,7 +73,7 @@ export default function LocaleLayout({
       <head>
         <title>Oz LeIsrael - La Force de la Torah, l&apos;Elite de Tsahal</title>
         <meta name="description" content="Programme unique combinant préparation spirituelle et physique pour intégrer l'élite de Tsahal" />
-        <meta name="keywords" content="Tsahal, IDF, Torah, Yeshiva, préparation militaire, Israël, élite, sayerot" />
+        <meta name="keywords" content="Tsahal, IDF, Torah, Mekhina, préparation militaire, Israël, élite, sayerot" />
         
         {/* Viewport et responsive */}
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />

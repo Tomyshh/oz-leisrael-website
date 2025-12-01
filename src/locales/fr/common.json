@@ -8,14 +8,14 @@
   },
   "hero": {
     "title": "Oz LeIsrael",
-    "subtitle": "La Force de la Torah, l'Elite de Tsahal",
+    "subtitle": "Mekhina / Année préparatoire de Torah et sport avant armée",
     "cta": "Rejoins le Programme"
   },
   "programName": "Oz LeIsrael",
   "pillars": {
     "spiritual": {
       "title": "Préparation Spirituelle",
-      "description": "Étude approfondie de la Torah au sein de la Yeshiva"
+      "description": "Étude approfondie de la Torah au sein de la Mekhina"
     },
     "physical": {
       "title": "Préparation Physique & Mentale",
@@ -28,13 +28,13 @@
   },
   "mission": {
     "title": "Notre Mission",
-    "elite": "Devenir l'élite",
-    "unity": "Unir Torah et Armée",
-    "integrate": "Intégrer les meilleures unités",
-    "framework": "Un cadre de Yeshiva unique"
+    "elite": "Enraciner son identité dans la Torah",
+    "unity": "Devenir l'élite",
+    "integrate": "Forger un esprit d'équipe",
+    "framework": "Une discipline pour la vie"
   },
   "testimonials": {
-    "title": "Ils l'ont fait",
+    "title": "TÉMOIGNAGES",
     "subtitle": "Découvre l'expérience Oz LeIsrael"
   },
   "cta": {
@@ -75,7 +75,7 @@
     "intro": "Oz LeIsrael repose sur l'équilibre parfait entre le renforcement spirituel et le dépassement physique.",
     "kodesh": {
       "title": "Le Kodesh - L'étude",
-      "description": "Un programme d'étude solide au sein de la Yeshiva Or Vishua. Objectifs : grandir spirituellement, construire des bases solides avant l'armée."
+      "description": "Un programme d'étude solide au sein de la Mekhina Oz LeIsrael. Objectifs : grandir spirituellement, construire des bases solides avant l'armée."
     },
     "hol": {
       "title": "Le Hol - Le Physique & Mental",
