@@ -21,6 +21,11 @@ const CTASection = dynamic(() => import('@/components/home/CTASection'), {
   ssr: true,
 });
 
+const GallerySection = dynamic(() => import('@/components/home/GallerySection'), {
+  loading: () => <div className="h-96 flex items-center justify-center">Chargement...</div>,
+  ssr: true,
+});
+
 export default function HomePage() {
   const [showContent, setShowContent] = useState(false);
 
@@ -31,6 +36,7 @@ export default function HomePage() {
         <HeroSection />
         <PillarsSection />
         <MissionSection />
+        <GallerySection />
         <CTASection />
       </div>
     </>

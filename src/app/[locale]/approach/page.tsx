@@ -6,6 +6,7 @@ import { useI18n } from '@/lib/i18n';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaBook, FaDumbbell, FaArrowRight } from 'react-icons/fa';
+import { Phone, Users, CheckCircle, GraduationCap, Target } from 'lucide-react';
 
 export default function ApproachPage() {
   const { t } = useI18n();
@@ -18,27 +19,27 @@ export default function ApproachPage() {
     {
       number: '01',
       key: 'step1',
-      icon: '📞',
+      Icon: Phone,
     },
     {
       number: '02',
       key: 'step2',
-      icon: '🤝',
+      Icon: Users,
     },
     {
       number: '03',
       key: 'step3',
-      icon: '✅',
+      Icon: CheckCircle,
     },
     {
       number: '04',
       key: 'step4',
-      icon: '📚',
+      Icon: GraduationCap,
     },
     {
       number: '05',
       key: 'step5',
-      icon: '🎯',
+      Icon: Target,
     },
   ];
 
@@ -172,29 +173,41 @@ export default function ApproachPage() {
             <h2 className="heading-2 mb-4">{t('approach.process.title')}</h2>
           </motion.div>
 
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-2xl mx-auto">
             <div className="relative">
-              {/* Connecting Line */}
-              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gray-300 hidden md:block" />
 
               {/* Steps */}
-              <div className="space-y-8">
+              <div className="space-y-6">
                 {processSteps.map((step, index) => (
                   <motion.div
                     key={step.key}
                     initial={{ opacity: 0, x: -20 }}
                     animate={inView ? { opacity: 1, x: 0 } : {}}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
-                    className="flex items-start space-x-6"
+                    className="flex items-center gap-5"
                   >
-                    <div className="flex-shrink-0 w-16 h-16 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl relative z-10">
-                      {step.icon}
+                    {/* Numéro + Icône */}
+                    <div className="flex-shrink-0 relative">
+                      <div className="w-14 h-14 bg-primary-50 border-2 border-primary-200 rounded-full flex items-center justify-center relative z-10">
+                        <step.Icon className="w-6 h-6 text-primary-600" strokeWidth={1.5} />
+                      </div>
+                      {/* Ligne de connexion */}
+                      {index < processSteps.length - 1 && (
+                        <div className="absolute top-14 left-1/2 -translate-x-1/2 w-0.5 h-6 bg-primary-200" />
+                      )}
                     </div>
-                    <div className="flex-1 pb-8">
-                      <h3 className="text-xl font-semibold mb-2">
+                    
+                    {/* Contenu */}
+                    <div className="flex-1 bg-white rounded-xl p-5 shadow-sm border border-gray-100 hover:shadow-md hover:border-primary-100 transition-all duration-300">
+                      <div className="flex items-center gap-3 mb-1">
+                        <span className="text-xs font-semibold text-primary-600 bg-primary-50 px-2 py-0.5 rounded-full">
+                          Étape {step.number}
+                        </span>
+                      </div>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-1">
                         {t(`approach.process.${step.key}`)}
                       </h3>
-                      <p className="text-gray-600">
+                      <p className="text-gray-500 text-sm">
                         {t(`approach.process.${step.key}Desc`)}
                       </p>
                     </div>

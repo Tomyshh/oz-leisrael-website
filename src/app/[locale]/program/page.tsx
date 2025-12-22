@@ -54,35 +54,8 @@ export default function ProgramPage() {
         </div>
       </section>
 
-      {/* Video Section */}
-      <section className="bg-white py-12">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="max-w-5xl mx-auto"
-          >
-            <div className="relative bg-black rounded-xl overflow-hidden shadow-2xl">
-              <video
-                controls
-                className="w-full aspect-video"
-                preload="metadata"
-                controlsList="nodownload"
-                style={{
-                  objectFit: 'contain',
-                }}
-              >
-                <source src="/videos/first-presentation.mp4" type="video/mp4" />
-                Votre navigateur ne supporte pas la lecture de vidéos.
-              </video>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
       {/* Photos Gallery */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding bg-white">
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {photos.map((photo, index) => (
@@ -118,9 +91,44 @@ export default function ProgramPage() {
       </section>
 
       {/* Schedule Section */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-gray-50">
         <div className="container">
           <DaySchedule />
+        </div>
+      </section>
+
+      {/* Video Section */}
+      <section className="section-padding bg-white">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-8"
+          >
+            <h2 className="heading-2 mb-4">Découvre le programme en vidéo</h2>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="max-w-5xl mx-auto"
+          >
+            <div className="relative bg-black rounded-xl overflow-hidden shadow-2xl">
+              <video
+                controls
+                className="w-full aspect-video"
+                preload="metadata"
+                controlsList="nodownload"
+                style={{
+                  objectFit: 'contain',
+                }}
+              >
+                <source src="/videos/first-presentation.mp4" type="video/mp4" />
+                Votre navigateur ne supporte pas la lecture de vidéos.
+              </video>
+            </div>
+          </motion.div>
         </div>
       </section>
 

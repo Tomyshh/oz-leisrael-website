@@ -4,6 +4,7 @@
     "program": "Le Programme",
     "approach": "Notre Approche",
     "about": "La Mekhina",
+    "gallery": "Galerie",
     "contact": "Contact"
   },
   "hero": {
@@ -40,6 +41,20 @@
   "cta": {
     "ready": "Prêt à relever le défi ?",
     "talk": "Nous parler de ton projet"
+  },
+  "gallery": {
+    "title": "Notre Quotidien en Images",
+    "subtitle": "Découvre l'esprit Oz LeIsrael à travers nos moments de Torah, d'entraînement et de fraternité",
+    "pageTitle": "Galerie Photos",
+    "pageSubtitle": "Plonge au cœur de l'expérience Oz LeIsrael à travers notre collection de photos",
+    "photos": "photos",
+    "filters": {
+      "all": "Toutes",
+      "recent": "Récentes",
+      "torah": "Torah & Étude",
+      "training": "Entraînement",
+      "community": "Communauté"
+    }
   },
   "contact": {
     "title": "Contact",

@@ -48,6 +48,7 @@ function Header() {
     { name: t('nav.program'), href: '/fr/program' },
     { name: t('nav.approach'), href: '/fr/approach' },
     { name: t('nav.about'), href: '/fr/about' },
+    { name: t('nav.gallery'), href: '/fr/gallery' },
     { name: t('nav.contact'), href: '/fr/contact' },
   ], [t]);
 
