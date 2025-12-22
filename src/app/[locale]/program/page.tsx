@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { X } from 'lucide-react';
+import DaySchedule from '@/components/program/DaySchedule';
 
 export default function ProgramPage() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -113,6 +114,13 @@ export default function ProgramPage() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Schedule Section */}
+      <section className="section-padding bg-white">
+        <div className="container">
+          <DaySchedule />
         </div>
       </section>
 
