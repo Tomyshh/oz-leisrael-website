@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { SEO_BASE_URL } from '@/lib/seo';
+import { SITE_URL } from '@/lib/seo';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
@@ -7,6 +7,7 @@ export default function manifest(): MetadataRoute.Manifest {
     short_name: 'Oz LeIsrael',
     description:
       "Programme unique combinant préparation spirituelle et physique pour intégrer l'élite de Tsahal.",
+    // Si vous avez une redirection canonical (www/non-www), elle doit correspondre à SITE_URL
     start_url: '/fr',
     scope: '/',
     display: 'standalone',

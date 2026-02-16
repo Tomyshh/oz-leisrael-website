@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import {
-  SEO_BASE_URL,
+  SITE_URL,
   PAGE_META,
   canonicalUrl,
   LOCALES,
@@ -30,7 +30,7 @@ export async function generateMetadata({
       title: meta.title,
       description: meta.description,
       url: canonical,
-      images: [{ url: meta.ogImage || `${SEO_BASE_URL}/images/cover.png`, width: 1200, height: 630, alt: 'Oz LeIsrael' }],
+      images: [{ url: meta.ogImage || `${SITE_URL}/images/cover.png`, width: 1200, height: 630, alt: 'Oz LeIsrael' }],
     },
     twitter: { title: meta.title, description: meta.description },
   };

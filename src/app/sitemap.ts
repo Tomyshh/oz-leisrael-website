@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { SEO_BASE_URL, PAGE_PATHS, LOCALES } from '@/lib/seo';
+import { SITE_URL, PAGE_PATHS, LOCALES } from '@/lib/seo';
 
 /** Fréquence de mise à jour par type de page */
 const changeFreq = (
@@ -27,7 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const pathSegment = path === '' ? '' : path;
     for (const locale of LOCALES) {
       entries.push({
-        url: `${SEO_BASE_URL}/${locale}${pathSegment}`,
+        url: `${SITE_URL}/${locale}${pathSegment}`,
         lastModified,
         changeFrequency: changeFreq(path),
         priority: priority(path),

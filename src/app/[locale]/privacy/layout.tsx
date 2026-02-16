@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import {
-  SEO_BASE_URL,
+  SITE_URL,
   PAGE_META,
   canonicalUrl,
   LOCALES,

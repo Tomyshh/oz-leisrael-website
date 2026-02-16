@@ -3,7 +3,24 @@
  * Base URL, métadonnées par page, schémas JSON-LD
  */
 
-export const SEO_BASE_URL = 'https://ozleisrael.org';
+/**
+ * URL canonique du site.
+ * Best practice: le sitemap/robots/canonicals DOIVENT utiliser le même host
+ * que celui déclaré dans Google Search Console.
+ *
+ * À configurer en prod via `SITE_URL` (ou `NEXT_PUBLIC_SITE_URL`).
+ * Ex: https://oz-leisrael.com
+ */
+function normalizeSiteUrl(input: string): string {
+  return input.replace(/\/+$/, '');
+}
+
+export const SITE_URL = normalizeSiteUrl(
+  process.env.NEXT_PUBLIC_SITE_URL ||
+    process.env.SITE_URL ||
+    // défaut sécurisé (à ajuster si votre domaine canonique est différent)
+    'https://oz-leisrael.com'
+);
 
 export type Locale = 'fr' | 'en';
 
@@ -14,7 +31,7 @@ export interface PageMeta {
   ogImage?: string;
 }
 
-const defaultOgImage = `${SEO_BASE_URL}/images/cover.png`;
+const defaultOgImage = `${SITE_URL}/images/cover.png`;
 
 /** Métadonnées par page et par locale */
 export const PAGE_META: Record<string, Record<Locale, PageMeta>> = {
@@ -159,7 +176,7 @@ export const LOCALES: Locale[] = ['fr', 'en'];
 /** Construire l’URL canonique pour une locale et un path */
 export function canonicalUrl(path: string, locale: Locale): string {
   const base = path === '' ? '' : path;
-  return `${SEO_BASE_URL}/${locale}${base}`;
+  return `${SITE_URL}/${locale}${base}`;
 }
 
 /** Données pour le schéma JSON-LD Organization / WebSite */
@@ -167,7 +184,7 @@ export const JSON_LD_ORGANIZATION = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'Oz LeIsrael',
-  url: SEO_BASE_URL,
+  url: SITE_URL,
   description:
     "Programme unique combinant préparation spirituelle et physique pour intégrer l'élite de Tsahal.",
   sameAs: [] as string[],
@@ -178,7 +195,7 @@ export function getJsonLdWebSite(locale: Locale) {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'Oz LeIsrael',
-    url: `${SEO_BASE_URL}/${locale}`,
+    url: `${SITE_URL}/${locale}`,
     description:
       locale === 'fr'
         ? "Programme unique combinant préparation spirituelle et physique pour intégrer l'élite de Tsahal."

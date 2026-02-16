@@ -1,4 +1,4 @@
-import { SEO_BASE_URL, getJsonLdWebSite, JSON_LD_ORGANIZATION } from '@/lib/seo';
+import { SITE_URL, getJsonLdWebSite, JSON_LD_ORGANIZATION } from '@/lib/seo';
 import type { Locale } from '@/lib/seo';
 
 export function JsonLd({ locale }: { locale: Locale }) {
@@ -10,7 +10,7 @@ export function JsonLd({ locale }: { locale: Locale }) {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             ...JSON_LD_ORGANIZATION,
-            url: `${SEO_BASE_URL}/${locale}`,
+            url: `${SITE_URL}/${locale}`,
           }),
         }}
       />
