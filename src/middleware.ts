@@ -11,6 +11,12 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
+  // Ne pas appliquer la locale aux fichiers statiques (ex: /cover.ico, /assets/*.css, etc.)
+  // Sans ça, on peut rediriger vers /fr/<fichier> et provoquer un 404.
+  if (/\.[^/]+$/.test(pathname)) {
+    return NextResponse.next();
+  }
+
   const pathnameIsMissingLocale = ['fr', 'en'].every(
     (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
   );

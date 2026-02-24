@@ -55,8 +55,8 @@ export async function generateMetadata({
     publisher: 'Oz LeIsrael',
     formatDetection: { email: false, address: false, telephone: false },
     icons: {
-      icon: [{ url: '/cover.ico', type: 'image/x-icon' }],
-      shortcut: ['/cover.ico'],
+      icon: [{ url: '/cover.ico?v=1', type: 'image/x-icon' }],
+      shortcut: ['/cover.ico?v=1'],
     },
     alternates: {
       canonical,
@@ -117,8 +117,8 @@ export default function LocaleLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <meta name="theme-color" content="#000000" />
-        <link rel="icon" href="/cover.ico" sizes="any" />
-        <link rel="shortcut icon" href="/cover.ico" />
+        <link rel="icon" href="/cover.ico?v=1" sizes="any" />
+        <link rel="shortcut icon" href="/cover.ico?v=1" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
