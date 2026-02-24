@@ -7,15 +7,19 @@ import { useI18n } from '@/lib/i18n';
 import { memo, useMemo } from 'react';
 
 function Footer() {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
+  const homeHref = useMemo(() => `/${locale}`, [locale]);
 
-  const navigation = useMemo(() => [
-    { name: t('nav.home'), href: '/fr' },
-    { name: t('nav.program'), href: '/fr/program' },
-    { name: t('nav.approach'), href: '/fr/approach' },
-    { name: t('nav.about'), href: '/fr/about' },
-    { name: t('nav.contact'), href: '/fr/contact' },
-  ], [t]);
+  const navigation = useMemo(
+    () => [
+      { name: t('nav.home'), href: homeHref },
+      { name: t('nav.program'), href: `${homeHref}/program` },
+      { name: t('nav.approach'), href: `${homeHref}/approach` },
+      { name: t('nav.about'), href: `${homeHref}/about` },
+      { name: t('nav.contact'), href: `${homeHref}/contact` },
+    ],
+    [t, homeHref]
+  );
 
   const socialLinks = useMemo(() => [
     { name: 'Instagram', icon: FaInstagram, href: 'https://www.instagram.com/oz_leisrael/' },
@@ -103,13 +107,13 @@ function Footer() {
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link
-                href="/fr/privacy"
+                href={`${homeHref}/privacy`}
                 className="text-gray-600 hover:text-primary-600 text-sm transition-colors duration-200"
               >
                 {t('footer.privacy')}
               </Link>
               <Link
-                href="/fr/terms"
+                href={`${homeHref}/terms`}
                 className="text-gray-600 hover:text-primary-600 text-sm transition-colors duration-200"
               >
                 {t('footer.terms')}

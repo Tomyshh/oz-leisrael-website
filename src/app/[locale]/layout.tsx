@@ -115,10 +115,6 @@ export default function LocaleLayout({
       suppressHydrationWarning
     >
       <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-        <meta name="theme-color" content="#000000" />
-        <link rel="icon" href="/cover.ico?v=1" sizes="any" />
-        <link rel="shortcut icon" href="/cover.ico?v=1" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />

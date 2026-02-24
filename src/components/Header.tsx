@@ -11,19 +11,23 @@ import { usePathname } from 'next/navigation';
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
   const pathname = usePathname();
+  const homeHref = useMemo(() => `/${locale}`, [locale]);
   
   // Vérifier si on est sur la page d'accueil
-  const isHomePage = useMemo(() => pathname === '/fr' || pathname === '/fr/', [pathname]);
+  const isHomePage = useMemo(
+    () => pathname === homeHref || pathname === `${homeHref}/`,
+    [pathname, homeHref]
+  );
 
   // Fonction pour vérifier si le lien est actif
   const isActive = useCallback((href: string) => {
-    if (href === '/fr') {
-      return pathname === '/fr' || pathname === '/fr/';
+    if (href === homeHref) {
+      return pathname === homeHref || pathname === `${homeHref}/`;
     }
     return pathname.startsWith(href);
-  }, [pathname]);
+  }, [pathname, homeHref]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,14 +47,17 @@ function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isHomePage]);
 
-  const navigation = useMemo(() => [
-    { name: t('nav.home'), href: '/fr' },
-    { name: t('nav.program'), href: '/fr/program' },
-    { name: t('nav.approach'), href: '/fr/approach' },
-    { name: t('nav.about'), href: '/fr/about' },
-    { name: t('nav.gallery'), href: '/fr/gallery' },
-    { name: t('nav.contact'), href: '/fr/contact' },
-  ], [t]);
+  const navigation = useMemo(
+    () => [
+      { name: t('nav.home'), href: homeHref },
+      { name: t('nav.program'), href: `${homeHref}/program` },
+      { name: t('nav.approach'), href: `${homeHref}/approach` },
+      { name: t('nav.about'), href: `${homeHref}/about` },
+      { name: t('nav.gallery'), href: `${homeHref}/gallery` },
+      { name: t('nav.contact'), href: `${homeHref}/contact` },
+    ],
+    [t, homeHref]
+  );
 
   const toggleMenu = useCallback(() => {
     setIsMenuOpen(prev => !prev);
@@ -73,7 +80,7 @@ function Header() {
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/fr" className="flex items-center">
+          <Link href={homeHref} className="flex items-center">
             <Image
               src="/images/logo.png?v=2"
               alt="Oz LeIsrael"

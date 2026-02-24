@@ -39,17 +39,17 @@ export const PAGE_META: Record<string, Record<Locale, PageMeta>> = {
     fr: {
       title: "Oz LeIsrael - La Force de la Torah, l'Elite de Tsahal",
       description:
-        "Programme unique combinant préparation spirituelle et physique pour intégrer l'élite de Tsahal. Mekhina / année préparatoire Torah et sport avant armée.",
+        "Yeshiva / Mekhina à Haïfa : étude de la Torah et préparation physique & mentale pour intégrer l'armée (Tsahal) et viser les unités d'élite.",
       keywords:
-        'Tsahal, IDF, Torah, Mekhina, préparation militaire, Israël, élite, sayerot, année préparatoire, yeshiva',
+        "préparation armée, Tsahal, IDF, yeshiva, étude de la Torah, Mekhina, Haïfa, préparation physique, préparation mentale, unités d'élite, sayerot, année préparatoire, Rav Zini",
       ogImage: defaultOgImage,
     },
     en: {
       title: 'Oz LeIsrael - The Strength of Torah, The Elite of Tsahal',
       description:
-        "Unique program combining spiritual and physical preparation to join Tsahal's elite. Mekhina / preparatory year of Torah and sport before the army.",
+        "Yeshiva / Mekhina in Haifa: Torah study with physical & mental preparation to join the army (IDF) and aim for elite units.",
       keywords:
-        'IDF, Tsahal, Torah, Mekhina, military preparation, Israel, elite, sayerot, preparatory year, yeshiva',
+        'army preparation, IDF, Tsahal, yeshiva, Torah study, Mekhina, Haifa, physical preparation, mental preparation, elite units, sayerot, preparatory year, Rav Zini',
       ogImage: defaultOgImage,
     },
   },
@@ -57,15 +57,17 @@ export const PAGE_META: Record<string, Record<Locale, PageMeta>> = {
     fr: {
       title: 'Le Programme | Oz LeIsrael',
       description:
-        "Découvrez le programme Oz LeIsrael : journée type, entraînement, étude de la Torah, témoignages et médias. Préparation à l'élite de Tsahal.",
-      keywords: 'programme Oz LeIsrael, journée type, entraînement, Torah, témoignages, Tsahal',
+        "Programme Oz LeIsrael à Haïfa : journée type, entraînement, étude de la Torah, préparation physique & mentale, témoignages et médias. Préparation à l'armée (Tsahal).",
+      keywords:
+        "programme Oz LeIsrael, Haïfa, préparation armée, Tsahal, yeshiva, étude de la Torah, journée type, entraînement, préparation physique, préparation mentale, unités d'élite",
       ogImage: defaultOgImage,
     },
     en: {
       title: 'The Program | Oz LeIsrael',
       description:
-        "Discover the Oz LeIsrael program: typical day, training, Torah study, testimonials and media. Preparation for Tsahal's elite.",
-      keywords: 'Oz LeIsrael program, schedule, training, Torah, testimonials, IDF',
+        'Oz LeIsrael program in Haifa: daily schedule, training, Torah study, physical & mental preparation, testimonials and media. Army (IDF) preparation.',
+      keywords:
+        'Oz LeIsrael program, Haifa, army preparation, IDF, yeshiva, Torah study, daily schedule, training, physical preparation, mental preparation, elite units',
       ogImage: defaultOgImage,
     },
   },
@@ -73,15 +75,17 @@ export const PAGE_META: Record<string, Record<Locale, PageMeta>> = {
     fr: {
       title: 'Notre Approche | Oz LeIsrael',
       description:
-        "Notre approche : Torah, fraternité, excellence. Une formation unique qui forge l'élite de demain pour Israël.",
-      keywords: 'approche Oz LeIsrael, Torah, fraternité, excellence, formation',
+        "Notre approche : Torah, yeshiva, fraternité et excellence. Une formation à Haïfa qui forge une préparation spirituelle, physique et mentale avant l'armée.",
+      keywords:
+        "approche Oz LeIsrael, yeshiva, étude de la Torah, Haïfa, fraternité, excellence, préparation armée, préparation physique, préparation mentale",
       ogImage: defaultOgImage,
     },
     en: {
       title: 'Our Approach | Oz LeIsrael',
       description:
-        'Our approach: Torah, brotherhood, excellence. A unique training that forges tomorrow\'s elite for Israel.',
-      keywords: 'Oz LeIsrael approach, Torah, brotherhood, excellence, training',
+        "Our approach: Torah, yeshiva, brotherhood, excellence. A Haifa-based framework for spiritual, physical and mental preparation before the army.",
+      keywords:
+        'Oz LeIsrael approach, yeshiva, Torah study, Haifa, brotherhood, excellence, army preparation, physical preparation, mental preparation',
       ogImage: defaultOgImage,
     },
   },
@@ -89,15 +93,17 @@ export const PAGE_META: Record<string, Record<Locale, PageMeta>> = {
     fr: {
       title: 'La Mekhina | Oz LeIsrael',
       description:
-        "Présentation de la Mekhina Oz LeIsrael : valeurs, équipe, cadre. La préparation spirituelle et physique pour les unités d'élite.",
-      keywords: 'Mekhina Oz LeIsrael, valeurs, yeshiva, unités élite',
+        "Présentation de la Mekhina / yeshiva Oz LeIsrael à Haïfa : valeurs, cadre et accompagnement. Étude de la Torah et préparation physique & mentale avant l'armée.",
+      keywords:
+        "Mekhina Oz LeIsrael, yeshiva, Haïfa, étude de la Torah, préparation armée, préparation physique, préparation mentale, unités d'élite, Rav Zini",
       ogImage: defaultOgImage,
     },
     en: {
       title: 'The Mekhina | Oz LeIsrael',
       description:
-        "Discover the Oz LeIsrael Mekhina: values, team, framework. Spiritual and physical preparation for elite units.",
-      keywords: 'Oz LeIsrael Mekhina, values, yeshiva, elite units',
+        'Discover the Oz LeIsrael Mekhina / yeshiva in Haifa: values, framework and support. Torah study with physical & mental preparation before the army.',
+      keywords:
+        'Oz LeIsrael Mekhina, yeshiva, Haifa, Torah study, army preparation, physical preparation, mental preparation, elite units, Rav Zini',
       ogImage: defaultOgImage,
     },
   },
@@ -183,11 +189,39 @@ export function canonicalUrl(path: string, locale: Locale): string {
 export const JSON_LD_ORGANIZATION = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
+  '@id': `${SITE_URL}#organization`,
   name: 'Oz LeIsrael',
   url: SITE_URL,
   description:
     "Programme unique combinant préparation spirituelle et physique pour intégrer l'élite de Tsahal.",
-  sameAs: [] as string[],
+  keywords:
+    "préparation armée, yeshiva, étude de la Torah, préparation physique, préparation mentale, Haïfa, Tsahal, unités d'élite",
+  knowsAbout: [
+    'Torah study',
+    'Yeshiva',
+    'Army preparation',
+    'Physical preparation',
+    'Mental preparation',
+    'IDF / Tsahal',
+    'Haifa',
+  ],
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Haifa',
+    addressCountry: 'IL',
+  },
+  areaServed: [{ '@type': 'City', name: 'Haifa' }, { '@type': 'Country', name: 'Israel' }],
+  contactPoint: [
+    {
+      '@type': 'ContactPoint',
+      contactType: 'informations',
+      telephone: '+972585767105',
+      availableLanguage: ['fr', 'en'],
+      url: 'https://wa.me/972585767105',
+    },
+  ],
+  sameAs: ['https://www.instagram.com/oz_leisrael/'] as string[],
+  member: [{ '@type': 'Person', name: 'Rav Zini', jobTitle: 'Rav' }],
 };
 
 export function getJsonLdWebSite(locale: Locale) {
@@ -201,6 +235,7 @@ export function getJsonLdWebSite(locale: Locale) {
         ? "Programme unique combinant préparation spirituelle et physique pour intégrer l'élite de Tsahal."
         : "Unique program combining spiritual and physical preparation to join Tsahal's elite.",
     inLanguage: locale === 'fr' ? 'fr-FR' : 'en-US',
+    publisher: { '@id': `${SITE_URL}#organization` },
     potentialAction: {
       '@type': 'ContactAction',
       target: {
